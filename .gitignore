@@ -1,0 +1,30 @@
+# Visual Studio Code
+.vscode/
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Bb]in/
+[Oo]bj/
+
+# Rider
+.idea/
+
+# User-specific files
+*.DS_Store
+Thumbs.db
+
+# Packages
+# NuGet Packages
+# (If you are using packages.config, you might want to ignore the packages folder.
+# For PackageReference, this is usually not needed as packages are restored globally or per-project)
+# **/packages/*
+# !**/packages/repositories.config
+
+# Local Test Settings
+*.DotSettings.user
