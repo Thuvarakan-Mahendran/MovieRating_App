@@ -26,5 +26,5 @@ Thumbs.db
 # **/packages/*
 # !**/packages/repositories.config
 
-# Local Test Settings
+# Local Test Settingss
 *.DotSettings.user
