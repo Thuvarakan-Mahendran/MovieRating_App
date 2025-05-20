@@ -1,0 +1,100 @@
+<div class="movie-detail-page-container"
+    [ngStyle]="{'background-image': movie?.posterUrl ? 'url(' + movie?.posterUrl + ')' : 'none'}"
+    class="poster-background-container">
+    <!-- The app-header is assumed to be outside this component, managed by app.component.html -->
+      <div class="left-panel-overlay">
+        
+  
+        <div *ngIf="isLoading && !movie" class="loading-state full-panel-message">
+          <p>Loading movie details...</p>
+          <!-- spinner icon -->
+          <i class="fas fa-spinner fa-spin loading-spinner"></i>
+        </div>
+  
+        <div *ngIf="error && !movie && !isLoading" class="error-state full-panel-message">
+          <p>{{ error }}</p>
+          <button (click)="loadMovieData(currentMovieId)" class="retry-button" *ngIf="currentMovieId > 0">
+            Try Again
+          </button>
+        </div>
+  
+        <div *ngIf="movie && !error" class="movie-info-content">
+            <button (click)="goBack()" class="back-button" aria-label="Go back">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <!-- <div class="poster-container">
+                Text "Details of movie" from image seems to be a placeholder for actual poster
+                <img *ngIf="movie.posterUrl" [src]="movie.posterUrl" [alt]="movie.title" class="movie-detail-poster">
+                <div *ngIf="!movie.posterUrl" class="no-poster-available">
+                Details of movie <br/> (No Poster)
+                </div>
+            </div> -->
+
+            <div class="movie-text-details">
+                <h2 class="movie-title-display">{{ movie.title }}</h2>
+              
+                <p *ngIf="movie.genre" class="movie-genre">
+                  <strong>Genre:</strong> {{ movie.genre }}
+                </p>
+              
+                <p *ngIf="movie.releaseYear" class="movie-release">
+                  <strong>Release Year:</strong> {{ movie.releaseYear }}
+                </p>
+              
+                <p *ngIf="movie.description" class="movie-description-text">
+                  {{ movie.description }}
+                </p>
+              
+                <p *ngIf="!movie.description && !movie.genre && !movie.releaseYear" class="movie-fallback">
+                  No additional information available for this movie.
+                </p>
+            </div>
+              
+  
+            <!-- Average Rating Display -->
+            <div class="rating-display-section average-rating">
+                <h3 class="rating-title">Rating</h3>
+                <div class="stars-container">
+                <i *ngFor="let star of getStarArray()"
+                    [ngClass]="getAverageStarClass(star)"
+                    aria-hidden="true"></i>
+                <span *ngIf="movie.rating !== null && movie.rating !== undefined" class="rating-text">
+                    ({{ movie.rating| number:'1.1-1' }}/{{maxRating}})
+                </span>
+                <span *ngIf="movie.rating === null || movie.rating === undefined" class="rating-text">
+                    (Not Rated)
+                </span>
+                </div>
+            </div>
+  
+            <!-- User Interactive Rating -->
+            <div class="rating-interactive-section">
+                <!-- <h3 class="rating-title">Your Rating</h3>  -->
+                <!-- Title for user rating can be omitted if "Rate me" is clear -->
+                <div class="stars-container interactive"
+                    (mouseleave)="onStarLeave()"
+                    role="radiogroup"
+                    aria-labelledby="your-rating-title">
+                <!-- <span id="your-rating-title" class="sr-only">Your rating for {{movie.title}}</span> -->
+                <i *ngFor="let star of getStarArray()"
+                    [ngClass]="getUserStarClass(star)"
+                    (mouseenter)="onStarHover(star)"
+                    (click)="setUserRating(star)"
+                    (keydown.enter)="setUserRating(star)"
+                    (keydown.space)="setUserRating(star)"
+                    tabindex="0"
+                    role="radio"
+                    [attr.aria-checked]="star === userRating"
+                    [attr.aria-label]="star + (star === 1 ? ' star' : ' stars')"></i>
+                </div>
+                <button (click)="onRateMeClick()" class="rate-me-action-button" [disabled]="isLoading || userRating === 0">
+                <span *ngIf="!isLoading">Rate me</span>
+                <i *ngIf="isLoading" class="fas fa-spinner fa-spin"></i>
+                </button>
+                <p *ngIf="isLoading && movie" class="updating-rating-text">Updating rating...</p>
+            </div>
+        </div>
+      </div>
+      <!-- The right side is the hero background -->
+    <!-- </div> -->
+</div>

@@ -1,0 +1,65 @@
+.app-sidebar {
+    width: 240px;
+    /* background-color: var(--sidebar-bg); */
+    background-color: #F7F8FA;
+    padding: 20px 0px;
+    border-right: 1px solid var(--border-color);
+    flex-shrink: 0;                                                     /* Prevent shrinking */
+    height: 100%;                                                       /* Fill parent height */
+  }
+  
+  .menu-label {
+    font-size: 0.75em;
+    color: var(--text-color-muted);
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 0 25px;
+    margin-bottom: 10px;
+  }
+  
+  .main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .nav-item a {
+    display: flex;
+    align-items: center;
+    padding: 12px 25px;
+    text-decoration: none;
+    color: #5f6368;
+    font-weight: 500;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+  
+  .nav-item a .nav-icon {
+    margin-right: 15px;
+    font-size: 1.1em;
+    width: 20px;
+    text-align: center;
+  }
+  
+  .nav-item a span {
+     font-size: 0.95em;
+  }
+  
+  .nav-item:hover a {
+    background-color: #e9ecef;
+    color: var(--text-color-dark);
+  }
+  
+  .nav-item.active a {
+    background-color: var(--card-bg); 
+    color: var(--active-nav-icon-color);                                      /* Blue text for active item */
+    border-radius: 0 8px 8px 0;                                               /* Rounded on the right */
+    margin-left: 15px;                                                        /* Offset to make it look "popped out" */
+    margin-right: 15px;                                                       /* Make it full width within offset */
+    padding-left: 10px;                                                       /* Adjust padding since we offset */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05), 0 0 0 1px var(--border-color);  /* Subtle shadow and border */
+    position: relative;
+  }
+  
+  .nav-item.active a .nav-icon {
+    color: var(--active-nav-icon-color);                                      /* Blue icon */
+  }

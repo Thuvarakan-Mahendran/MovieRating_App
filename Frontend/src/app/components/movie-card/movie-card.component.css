@@ -1,0 +1,123 @@
+.movie-card {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  flex-shrink: 0;
+}
+
+.poster-wrapper {
+  height: auto;
+  overflow: hidden;
+  border-radius: 8px 8px 0 0;
+  background-color: #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.poster-wrapper .movie-poster {
+  width: 100%;
+  height: auto;
+  display: block;
+  position: relative;
+  z-index: 1;
+  border-radius: 6px;
+  margin: 0 auto;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  transform: translateY(-15px);
+  margin-bottom: -15px;
+}
+
+.movie-details {
+  padding: 20px 15px 15px;
+  position: relative;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-title {
+  font-size: 1.1em;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 8px;
+  color: var(--text-color-dark);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.movie-genres {
+  margin-bottom: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.genre-tag {
+  background-color: var(--genre-tag-bg);
+  color: var(--text-color-muted);
+  font-size: 0.75em;
+  padding: 3px 8px;
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+.info-grid {
+  font-size: 0.8em;
+  color: var(--text-color-muted);
+  line-height: 1.5;
+  margin-bottom: 15px;
+  flex-grow: 1;
+}
+
+.info-grid .info-item {
+  margin: 3px 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 2.4em;
+}
+
+.info-grid .label {
+  font-weight: 600;
+  color: #555;
+}
+
+.info-grid .release-date {
+    color: #4CAF50;
+    font-weight: 500;
+}
+.info-grid .release-date .label {
+    color: var(--text-color-muted);
+}
+
+.add-watchlist-btn {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  background-color: #eaeaea;
+  border: 1px solid #ddd;
+  color: var(--text-color-muted);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.add-watchlist-btn:hover {
+  background-color: #dcdcdc;
+  color: var(--text-color-dark);
+}

@@ -1,0 +1,19 @@
+.app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;                           /* Prevents body scroll if content overflows */
+  }
+  
+  .main-content-wrapper {
+    display: flex;
+    flex-grow: 1;                               /* Takes remaining vertical space */
+    overflow: hidden;                           /* Important for independent scrolling of content-area */
+  }
+  
+  .content-area {
+    flex-grow: 1;
+    overflow-y: auto;                           /* Allows this area to scroll if content is too tall */
+    background-color: var(--sidebar-bg);
+    padding-bottom: 20px;
+  }

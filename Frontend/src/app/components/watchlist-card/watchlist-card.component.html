@@ -1,0 +1,35 @@
+<div class="watchlist-item-card" (click)="goToDetails(item.movieId)">
+    <div class="poster-container">
+      <img [src]="item.moviePosterUrl || 'assets/images/placeholder-poster.png'" [alt]="item.movieTitle" class="poster-image">
+    </div>
+    <div class="details-container">
+      <h3 class="movie-title">{{ item.movieTitle }}</h3>
+      <!-- <p *ngIf="item.releaseYear" class="release-year">{{ item.releaseYear }}</p> -->
+  
+      <div class="rating-section">
+        <span>Rating: </span>
+        <span class="stars">
+          <i *ngFor="let filled of stars; let i = index"
+             class="fas fa-star"
+             [class.filled]="filled"
+             [class.empty]="!filled"></i>
+        </span>
+        <span> ({{ item.userRating }}/5)</span>
+      </div>
+  
+      <div class="actions-section">
+        <button
+          class="status-button"
+          [ngClass]="{
+            'to-watch': item.status === 'To Watch',
+            'watched': item.status === 'Watched'
+          }"
+          (click)="toggleStatus()">
+          {{ item.status }}
+        </button>
+        <button class="icon-button remove-button" title="Remove from Watchlist" (click)="removeItem()">
+          <i class="fas fa-trash-alt"></i>
+        </button>
+      </div>
+    </div>
+</div>

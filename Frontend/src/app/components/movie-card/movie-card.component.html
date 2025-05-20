@@ -1,0 +1,14 @@
+<div class="movie-card" (click)="goToDetails(movie.movieId)">
+    <div class="poster-wrapper">
+      <img [src]="movie.posterUrl" [alt]="movie.title + ' poster'" class="movie-poster">
+    </div>
+    <div class="movie-details">
+      <h3 class="movie-title">{{ movie.title }}</h3>
+      <p *ngIf="movie.genre" class="genre">{{ movie.genre }}</p>
+      <p class="info-item"><span class="label">Release Year:</span> {{ movie.releaseYear }}</p>
+      <p class="info-item"><span class="label">Rating:</span> {{ movie.rating }}</p>
+      <button class="add-watchlist-btn" (click)="addtoWatchlist()">
+        <i class="fas fa-plus"></i>
+      </button>
+    </div>
+</div>
