@@ -1,0 +1,51 @@
+<form [formGroup]="movieForm" (ngSubmit)="onSubmit()" class="movie-form">
+    <div class="form-group">
+      <label for="title" class="form-label">Title<span class="required-indicator">*</span></label>
+      <input id="title" formControlName="title" type="text" maxlength="255" required class="form-control">
+      <div *ngIf="movieForm.get('title')?.touched && movieForm.get('title')?.invalid" class="error-messages">
+        <small *ngIf="movieForm.get('title')?.errors?.['required']" class="error-message">Title is required.</small>
+        <small *ngIf="movieForm.get('title')?.errors?.['maxlength']" class="error-message">Title is too long.</small>
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="genre" class="form-label">Genre</label>
+      <input id="genre" formControlName="genre" type="text" maxlength="100" class="form-control">
+      <div *ngIf="movieForm.get('genre')?.touched && movieForm.get('genre')?.invalid" class="error-messages">
+        <small *ngIf="movieForm.get('genre')?.errors?.['maxlength']" class="error-message">Genre is too long.</small>
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="releaseYear" class="form-label">Release Year</label>
+      <input id="releaseYear" formControlName="releaseYear" type="number" min="1888" class="form-control">
+      <div *ngIf="movieForm.get('releaseYear')?.touched && movieForm.get('releaseYear')?.invalid" class="error-messages">
+        <small *ngIf="movieForm.get('releaseYear')?.errors?.['min']" class="error-message">Year must be 1888 or later.</small>
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="rating" class="form-label">Rating</label>
+      <input id="rating" formControlName="rating" type="number" min="0" max="10" step="0.1" class="form-control">
+      <div *ngIf="movieForm.get('rating')?.touched && movieForm.get('rating')?.invalid" class="error-messages">
+        <small *ngIf="movieForm.get('rating')?.errors?.['min']" class="error-message">Rating cannot be negative.</small>
+        <small *ngIf="movieForm.get('rating')?.errors?.['max']" class="error-message">Rating cannot exceed 10.</small>
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="description" class="form-label">Description</label>
+      <textarea id="description" formControlName="description" class="form-control"></textarea>
+    </div>
+  
+    <div class="form-group">
+      <label for="posterUrl" class="form-label">Poster URL</label>
+      <input id="posterUrl" formControlName="posterUrl" type="url" maxlength="500" class="form-control">
+      <div *ngIf="movieForm.get('posterUrl')?.touched && movieForm.get('posterUrl')?.invalid" class="error-messages">
+        <small *ngIf="movieForm.get('posterUrl')?.errors?.['pattern']" class="error-message">Enter a valid URL.</small>
+        <small *ngIf="movieForm.get('posterUrl')?.errors?.['maxlength']" class="error-message">URL is too long.</small>
+      </div>
+    </div>
+  
+    <button type="submit" class="submit-button">Add Movie</button>
+  </form>

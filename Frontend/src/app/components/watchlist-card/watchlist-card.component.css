@@ -1,0 +1,125 @@
+.watchlist-item-card {
+    display: flex;
+    background-color: #f0f2f5; 
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    overflow: hidden;
+    font-family: 'Arial', sans-serif; 
+  }
+  
+  .poster-container {
+    flex-shrink: 0;
+    width: 120px;
+    /* height: 180px; */ 
+    background-color: #e0e0e0;                                              /* Placeholder color if image is missing */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .poster-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  .details-container {
+    flex-grow: 1;
+    padding: 15px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .movie-title {
+    font-size: 1.4em;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .release-year {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 10px;
+  }
+  
+  .rating-section {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    color: #555;
+  }
+  
+  .stars {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  
+  .stars .fas.fa-star {
+    color: #ccc;                                                              /* Empty star color */
+    font-size: 1.1em;
+  }
+  
+  .stars .fas.fa-star.filled {
+    color: #f5c518;                                                           /* Filled star color */
+  }
+  
+  .actions-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .status-button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;                                                        /* Pill shape */
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    color: white;
+    min-width: 100px;
+    text-align: center;
+  }
+  
+  .status-button.to-watch {
+    background-color: #d9534f; 
+  }
+  .status-button.to-watch:hover {
+    background-color: #c9302c;
+  }
+  
+  .status-button.watched {
+    background-color: #5cb85c; 
+  }
+  .status-button.watched:hover {
+    background-color: #4cae4c;
+  }
+  
+  .icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    font-size: 1.5em; 
+    color: #555; 
+  }
+  .icon-button:hover {
+    color: #000;
+  }
+  
+  .remove-button {
+    color: #d9534f; 
+  }
+  .remove-button:hover {
+    color: #ac2925;
+  }
+  
+  .action-icon.watched-mark { 
+    color: #5cb85c;
+    font-size: 1.8em;
+  }
